@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +20,7 @@
 	<meta property="og:type" content="article" />
 
     <!-- Website Title -->
-    <title>Done</title>
+    <title>SignUp</title>
 
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,600,700,700i&amp;subset=latin-ext" rel="stylesheet">
@@ -61,40 +62,9 @@
         <!-- end of mobile menu toggle button -->
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-            <ul class="navbar-nav ml-auto">
-                <!--li class="nav-item">
-                    <a class="nav-link page-scroll" href="#contact">اتصل بنا<span class="sr-only">(current)</span></a>
-                </li-->
+          <ul class="navbar-nav ml-auto">
 
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#pricing">{{user_name}}</em> أهلا بك يا</a>
-                </li>
-                <li class="nav-item">
-
-                  {% if user.is_authenticated %}
-
-
-                  <a class="nav-link page-scroll" href="{% url 'logout' %}"> تسجيل الخروج</a>
-
-                  {% else %}
-
-                  <a class="nav-link page-scroll" href="{% url 'login' %}"> تسجيل الدخول</a>
-
-                  {% endif %}
-
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="{% url 'mainpage' %}">الرئيسية</a>
-                </li>
-            </ul>
-
-                <!-- Dropdown Menu -->
-
-                <!-- end of dropdown menu -->
-
-
-          
+          </ul>
 
             <span class="nav-item social-icons">
               <span class="fa-stack">
@@ -133,127 +103,70 @@
     <!-- end of navbar -->
 
 
-    <!-- Header -->
-    <header id="header" class="ex-header">
+
+
+    <!-- Request -->
+    <div id="" class="form-1">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+
+                <div class="col-lg-6">
+                      <div class="text-container">
+                      <!--h3><span class="turquoise">Sign Up</span> <span style="margin-left:2.5em"><a href="{% url 'login' %}">Log In</a></<span></h3-->
+                      </div>
+                    <!-- Request Form -->
+                    <div class="">
+                        <form id=""  method="POST" action=".">
+                          {% csrf_token %}
+                          {{ form|crispy }}
+                            <div class="form-group">
+                                <button type="submit" class="form-control-submit-button">Sign Up</button>
+                            </div>
+                            <div class="form-message">
+                                <div id="rmsgSubmit" class=""></div>
+                            </div>
 
 
-                    {% if lastObject %}
-
-                    <h1>تم ارسال الطلب بنجاح</h1>
-
-                    <h3>{{lastObject.title}}</h3>
-
-                    <h4>..........سوف يتم الرد عليك في اقرب وقت</h4><br>
-                    <p class="turquoise">يمكنك متابعة حالة الطلب بالضغط علي متابعة الطلبات</p>
-
-
-                    {% else %}
-
-                    <h3 class="turquoise">لا يوجد اي طلبات</h3>
-
-                    {% endif %}
-
-
-                        <!-- Contact Form -->
-                          <!-- end of contact form -->
-                            <a class="btn-solid-lg page-scroll" href="{% url 'user_page' %}">أضف طلب</a>
-                            <a style="margin-left:2.5em" class="btn-solid-reg popup-with-move-anim" href="#details-lightbox-1">متابعة الطلبات</a>
+                            <p style="text-align:center;"> <a href="{% url 'signup' %}">التسجيل في الموقع</a> </p>
 
 
 
+
+
+
+
+                        </form>
+                    </div> <!-- end of form-container -->
+                    <!-- end of request form -->
                 </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </header> <!-- end of ex-header -->
-    <!-- end of header -->
 
-    <!-- Details Lightbox 1 -->
-  <div id="details-lightbox-1" class="lightbox-basic zoom-anim-dialog mfp-hide">
-        <div class="container">
-            <div class="row">
-                <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-                <div class="col-lg-5">
-                    <div class="image-container">
-                        <!--img class="img-fluid" src="{% static 'images/details-lightbox-1.svg' %}" alt="alternative"-->
-                        <h2>بيان حالة الطلب</h2>
-                        <ul>
-                          <li><strong>الطلب بالون الاسود : تم استلام الطلب بنجاح</strong> </li>
-                          <li style="color:#CBC819;"><strong>الطلب بالون الاصفر : جاري مراجعة الطلب</strong> </li>
-                          <li style="color:orange;"><strong>الطلب بالون البرتقالي : جاري تنفيذ الطلب</strong> </li>
-                          <li style="color:green;" ><strong>الطلب بالون الاخضر : تمت الموافقة علي الطلب</strong> </li>
-                          <li style="color:red;"><strong>الطلب بالون الاحمر : الطلب مرفوض لاسباب فنية</strong> </li>
-                          <li style="color:blue;"> <strong>الطلب بالون الازرق : تم الانهاء من تنفيذ الطلب وجاهز للتسليم يرجى الضغط علي الطلب</strong> </li>
+                <div class="col-lg-6">
+                    <div class="text-container">
+                      <h3><span class="turquoise">مساعدة طلبة كليات الهندسة وكليات التكنولوجيا والمعاهد الفنية</span></h3>
+                        <ul class="list-unstyled li-space-lg">
+                            <li class="media">
+                                <i class="fas fa-check"></i>
+                                <div class="media-body"><h4 class="blue">عمل مشارع</h4></div>
+                            </li>
+                            <li class="media">
+                                <i class="fas fa-check"></i>
+                                <div class="media-body"><h4 class="blue">حل واجبات</h4></div>
+                            </li>
+                            <li class="media">
+                                <i class="fas fa-check"></i>
+                                <div class="media-body"><h4 class="blue">شرح كورسات</h4></div>
+                            </li>
                         </ul>
-                    </div> <!-- end of image-container -->
-                </div> <!-- end of col -->
-                <div class="col-lg-7">
-                    <h3 class="turquoise">الطلبات التي تم تقديمها</h3>
-                    <hr>
-                    <ol>
-                      {% for subname in name %}
+                        <div class="form-group">
+                            <h4 style="text-align:center;"><span class="turquoise"><a href="{% url 'mainpage' %}">عودة الي الرئيسية</a></span></h4>
 
-                      {% if subname.rejected %}
-                      <li style="color:red;"><strong>{{subname.title}}</strong><span style="margin-left:2.5em">Rejected</span></li>
-
-                      {% elif subname.accepted %}
-                      <li style="color:green;"><strong>{{subname.title}}</strong><span style="margin-left:2.5em">Accepted</span></li>
-
-                      {% elif subname.in_progress %}
-                      <li style="color:#CBC819;"><strong>{{subname.title}}</strong><span style="margin-left:2.5em">In progress.....</span></li>
-
-                      {% elif subname.finished %}
-                      <li style="color:blue;"><strong>{{subname.title}}</strong><span style="margin-left:2.5em"> <a style="color:blue;" href="{% url 'payment' %}">Finished</a> </span></li>
-
-                      {% elif subname.solving %}
-                      <li style="color:orange;"><strong>{{subname.title}}</strong><span style="margin-left:2.5em">Solving.....</span></li>
-
-                      {% else %}
-                      <li style="color:black;"><strong>{{subname.title}}</strong><span style="margin-left:2.5em">Received</span></li>
-
-
-                      {% endif %}
-                      {% endfor %}
-                    </ol>
-
-
-
-                    <!--p>حل الواجبات يشمل التخصصات التالية</p-->
-
-                    <!--ul class="list-unstyled li-space-lg">
-                        <li class="media">
-                            <i class="fas fa-check"></i><div class="media-body">الدوائر الكهربية</div>
-                        </li>
-                        <li class="media">
-                            <i class="fas fa-check"></i><div class="media-body">الالكترونيات</div>
-                        </li>
-                        <li class="media">
-                            <i class="fas fa-check"></i><div class="media-body">الدوائر الرقمية</div>
-                        </li>
-                        <li class="media">
-                            <i class="fas fa-check"></i><div class="media-body">الميكروكنترولر</div>
-                        </li>
-                        <li class="media">
-                            <i class="fas fa-check"></i><div class="media-body">الميكروبروسيسور</div>
-                        </li>
-                        <li class="media">
-                            <i class="fas fa-check"></i><div class="media-body">البايثون</div>
-                        </li>
-                        <li class="media">
-                            <i class="fas fa-check"></i><div class="media-body">المتحكمات القابلة للبرمجة</div>
-                        </li>
-                    </ul-->
-                    <!--a class="btn-solid-reg mfp-close page-scroll" href="#request">قدم طلب</a--> <a class="btn-outline-reg mfp-close as-button" href="#screenshots">الرجوع</a>
+                        </div>
+                    </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
-    </div> <!-- end of lightbox-basic -->
-    <!-- end of details lightbox 1 -->
-
-
-
+    </div> <!-- end of form-1 -->
+    <!-- end of request -->
 
 
 

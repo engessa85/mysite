@@ -63,33 +63,38 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#header">الرئيسية <span class="sr-only">(current)</span></a>
+
+                    <a class="nav-link page-scroll" href="#contact">اتصل بنا<span class="sr-only">(current)</span></a>
+
+
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#services">الخدمات</a>
+                  {% if user.is_authenticated %}
+                    <a class="nav-link page-scroll" href="{% url 'user_page' %}">{{user_name}}</em> أهلا بك يا</a>
+                    {% else %}
+                    <a class="nav-link page-scroll" href=""></a>
+                    {% endif %}
                 </li>
                 <!--li class="nav-item">
                     <a class="nav-link page-scroll" href="#pricing">Pricing</a>
                 </li-->
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#request">قدم طلب</a>
+
+                  {% if user.is_authenticated %}
+
+
+                  <a class="nav-link page-scroll" href="{% url 'logout' %}"> تسجيل الخروج</a>
+
+                  {% else %}
+
+                  <a class="nav-link page-scroll" href="{% url 'login' %}"> تسجيل الدخول</a>
+
+                  {% endif %}
+
                 </li>
-
-
-
-                <!-- Dropdown Menu >
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle page-scroll" href="#about" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">About</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="terms-conditions.html"><span class="item-text">Terms Conditions</span></a>
-                        <div class="dropdown-items-divide-hr"></div>
-                        <a class="dropdown-item" href="privacy-policy.html"><span class="item-text">Privacy Policy</span></a>
-                    </div>
-                </li>
-                < end of dropdown menu -->
 
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#contact">اتصل بنا</a>
+                    <a class="nav-link page-scroll" href="{% url 'signup' %}">التسجيل</a>
                 </li>
             </ul>
             <span class="nav-item social-icons">
@@ -136,9 +141,45 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="text-container">
+
                             <h2><span class="turquoise">مساعدة طلبة كليات الهندسة وكليات التكنولوجيا والمعاهد الفنية</span></h2>
                             <h6 class="">عمل مشاريع , حل واجبات , شرح اون لاين</h6>
+
                             <a class="btn-solid-lg page-scroll" href="#services">اكتشف الخدمات</a>
+
+                            {% if user.is_authenticated %}
+
+
+                            <a style="margin-left:2.5em" class="btn-solid-lg page-scroll" href="{% url 'logout' %}">تسجيل الخروج</a>
+
+                            {% else %}
+
+                            <a style="margin-left:2.5em" class="btn-solid-lg page-scroll" href="{% url 'login' %}">تسجيل الدخول</a>
+
+                            {% endif %}
+
+                            <div class="row">
+                              <div class="col-lg-8">
+                                <br><center><a  href="{% url 'signup' %}">التسجيل في الموقع</a></center>
+                              </div>
+
+
+
+                              <div class="col-lg-8">
+                                {% if user.is_authenticated %}
+                                <br>  <h6><center><a  href="{% url 'user_page' %}">صفحتي</a></center></h6>
+                                {% else %}
+                                <br>  <h6><center><a  href=""></a></center></h6>
+                                {% endif %}
+                              </div>
+                            </div>
+
+
+
+
+
+
+
                         </div> <!-- end of text-container -->
                     </div> <!-- end of col -->
                     <div class="col-lg-6">
@@ -312,6 +353,10 @@
                                 <i class="fas fa-check" > </i>
                                 <div class="media-body" style="margin-left: 1em"> كورس ميكروكنترولر </div>
                             </li>
+                            <li class="media">
+                                <i class="fas fa-check" > </i>
+                                <div class="media-body" style="margin-left: 1em"> sql كورس قواعد البيانات </div>
+                            </li>
 
                         </ul>
                         <a class="btn-solid-reg popup-with-move-anim" href="#details-lightbox-3">التفاصيل</a>
@@ -370,7 +415,7 @@
                             <i class="fas fa-check"></i><div class="media-body">المتحكمات القابلة للبرمجة</div>
                         </li>
                     </ul>
-                    <a class="btn-solid-reg mfp-close page-scroll" href="#request">قدم طلب</a> <a class="btn-outline-reg mfp-close as-button" href="#screenshots">الرجوع</a>
+                    <!--a class="btn-solid-reg mfp-close page-scroll" href="#request">قدم طلب</a--> <a class="btn-outline-reg mfp-close as-button" href="#screenshots">الرجوع</a>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
@@ -413,7 +458,7 @@
                             <i class="fas fa-check"></i><div class="media-body">عمل تطبيقات الويب باستخدام ديجانجو</div>
                         </li>
                     </ul>
-                    <a class="btn-solid-reg mfp-close page-scroll" href="#request">قدم طلب</a> <a class="btn-outline-reg mfp-close as-button" href="#screenshots">الرجوع</a>
+                    <!--a class="btn-solid-reg mfp-close page-scroll" href="#request">قدم طلب</a--> <a class="btn-outline-reg mfp-close as-button" href="#screenshots">الرجوع</a>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
@@ -457,8 +502,11 @@
                         <li class="media">
                             <i class="fas fa-check"></i><div class="media-body">تصميم صفحات الويب</div>
                         </li>
+                        <li class="media">
+                            <i class="fas fa-check"></i><div class="media-body">sql قواعد البيانات</div>
+                        </li>
                     </ul>
-                    <a class="btn-solid-reg mfp-close page-scroll" href="#request">قدم طلب</a> <a class="btn-outline-reg mfp-close as-button" href="#screenshots">الرجوع</a>
+                    <!--a class="btn-solid-reg mfp-close page-scroll" href="#request">قدم طلب</a--> <a class="btn-outline-reg mfp-close as-button" href="#screenshots">الرجوع</a>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
@@ -594,7 +642,7 @@
     <!-- end of pricing -->
 
 
-    <!-- Request -->
+    <!-- Request >
     <div id="request" class="form-1">
         <div class="container">
             <div class="row">
@@ -617,11 +665,11 @@
                             </li>
 
                         </ul>
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
+                    </div> < end of text-container -->
+                </div> <!-- end of col >
                 <div class="col-lg-6">
 
-                    <!-- Request Form -->
+                    <!-- Request Form >
                     <div class="form-container">
                         <form id="" data-toggle="validator" data-focus="false" method="POST" action=".">
                           {% csrf_token %}
@@ -994,14 +1042,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>التواصل مع الادارة - تقديم الشكاوي - الاستفسار</h2>
+                    <h2>التواصل مع الادارة</h2>
                     <ul class="list-unstyled li-space-lg">
                         <li><i class=""></i>للاستفسار يرجي التواصل مع المسؤل</li><br>
                         <li><i class=""></i>رقم واتس اب</li><br>
                         <li><i class="fas fa-phone"></i><a class="turquoise" href="tel:003024630820">+965-94964095</a></li>
                         <li><i class=""></i>او</li>
                         <li><i class="fas fa-phone"></i><a class="turquoise" href="tel:003024630820">+20-1125724540</a></li><br>
-                        <li><i class="fas fa-envelope"></i><a class="turquoise" href="mailto:office@evolo.com">mohamed.yehia.essa@gmail.com</a></li><br>
+                        <li><i class="fas fa-envelope"></i><a class="turquoise" href="mailto:office@evolo.com">eng.essa85@gmail.com</a></li><br>
                     </ul>
 
                 </div> <!-- end of col -->

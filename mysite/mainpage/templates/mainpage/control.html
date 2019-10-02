@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>control panel</title>
+  </head>
+  <body>
+    <h1> Control page</h1>
+
+    {% for one_obj in one_objs %}
+
+      <h3><mark>{{one_obj.author}}</mark></h3>
+      <p> <u>Title</u> : <strong>{{one_obj.title}}</strong></p>
+      <p> <u>Services</u> : <strong>{{one_obj.services}}</strong></p>
+      <p> <u>Subject</u> : <strong>{{one_obj.subject}}</strong></p>
+      <p> <u>Delivery date</u> : <strong>{{one_obj.delivery_date}}</strong></p>
+      <p> <u>File</u> : <strong>{{one_obj.file}}</strong></p>
+
+      <p> <strong style="color:orange;" >Solving</strong> : <strong>{{one_obj.solving}}</strong></p>
+      <p> <strong style="color:red;" >Rejected</strong> : <strong>{{one_obj.rejected}}</strong></p>
+      <p> <strong style="color:green" >Accepted</strong> : <strong>{{one_obj.accepted}}</strong></p>
+      <p> <strong style="color:#CBC819;" >Inprogress</strong> : <strong>{{one_obj.in_progress}}</strong></p>
+      <p> <strong style="color:blue" >Finished</strong> : <strong>{{one_obj.finished}}</strong></p>
+
+    {% endfor %}
+
+  </body>
+</html>

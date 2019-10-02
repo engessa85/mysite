@@ -19,7 +19,7 @@
 	<meta property="og:type" content="article" />
 
     <!-- Website Title -->
-    <title>Done</title>
+    <title>Payment</title>
 
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,600,700,700i&amp;subset=latin-ext" rel="stylesheet">
@@ -67,7 +67,7 @@
                 </li-->
 
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#pricing">{{user_name}}</em> أهلا بك يا</a>
+                    <a class="nav-link page-scroll" href="#pricing"> <em>{{user_name}}</em> أهلا بك يا</a>
                 </li>
                 <li class="nav-item">
 
@@ -89,12 +89,7 @@
                 </li>
             </ul>
 
-                <!-- Dropdown Menu -->
 
-                <!-- end of dropdown menu -->
-
-
-          
 
             <span class="nav-item social-icons">
               <span class="fa-stack">
@@ -137,34 +132,43 @@
     <header id="header" class="ex-header">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-10">
+                  <h1>تم تنفيذ الطلب بنجاح</h1>
+                  <h4 class="turquoise">يرجي دفع المبلغ والتواصل مع  ادارة الموقع للحصول علي الملف</h4>
+                  <div >
+
+                            <!--a style="margin-left:2.5em" class="btn-solid-reg popup-with-move-anim" href="#details-lightbox-1">متابعة الطلبات</a-->
+
+                            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                            <input type="hidden" name="cmd" value="_s-xclick">
+                            <input type="hidden" name="hosted_button_id" value="89AMR98TT6L28">
+                            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                            </form>
 
 
-                    {% if lastObject %}
+                  </div>
+                  <div >
+                     <h5><center><a  href="{% url 'done' %}"> رجوع </a></center></h5><br>
+                  </div>
 
-                    <h1>تم ارسال الطلب بنجاح</h1>
+                  <div class="">
 
-                    <h3>{{lastObject.title}}</h3>
+                      <ul class="list-unstyled li-space-md">
 
-                    <h4>..........سوف يتم الرد عليك في اقرب وقت</h4><br>
-                    <p class="turquoise">يمكنك متابعة حالة الطلب بالضغط علي متابعة الطلبات</p>
+                          <li><i class=""></i>رقم واتس اب</li><br>
+                          <li><i class="fas fa-phone"></i><a class="turquoise" href="tel:003024630820"> <strong>+965-94964095</strong> </a></li>
+                          <li><i class=""></i>او</li>
+                          <li><i class="fas fa-phone"></i><a class="turquoise" href="tel:003024630820"><strong>+20-1125724540</strong></a></li><br>
+                          <li><i class="fas fa-envelope"></i><a class="turquoise" href="mailto:office@evolo.com"><strong>eng.essa85@gmail.com</strong></a></li><br>
+                      </ul>
 
-
-                    {% else %}
-
-                    <h3 class="turquoise">لا يوجد اي طلبات</h3>
-
-                    {% endif %}
-
-
-                        <!-- Contact Form -->
-                          <!-- end of contact form -->
-                            <a class="btn-solid-lg page-scroll" href="{% url 'user_page' %}">أضف طلب</a>
-                            <a style="margin-left:2.5em" class="btn-solid-reg popup-with-move-anim" href="#details-lightbox-1">متابعة الطلبات</a>
+                  </div> <!-- end of col -->
 
 
 
                 </div> <!-- end of col -->
+
             </div> <!-- end of row -->
         </div> <!-- end of container -->
     </header> <!-- end of ex-header -->
@@ -205,7 +209,7 @@
                       <li style="color:#CBC819;"><strong>{{subname.title}}</strong><span style="margin-left:2.5em">In progress.....</span></li>
 
                       {% elif subname.finished %}
-                      <li style="color:blue;"><strong>{{subname.title}}</strong><span style="margin-left:2.5em"> <a style="color:blue;" href="{% url 'payment' %}">Finished</a> </span></li>
+                      <li style="color:blue;"><strong>{{subname.title}}</strong><span style="margin-left:2.5em"> <a style="color:blue;" href="#details-payment-1">Finished</a> </span></li>
 
                       {% elif subname.solving %}
                       <li style="color:orange;"><strong>{{subname.title}}</strong><span style="margin-left:2.5em">Solving.....</span></li>
