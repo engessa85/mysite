@@ -101,6 +101,7 @@ def user_page(request):
 
 @user_passes_test(lambda u: u.is_superuser)
 def control_page(request):
+    users = User.objects.all()
     one_objs = user_service.objects.all()
-    context = {'one_objs':one_objs}
+    context = {'one_objs':one_objs , 'users':users}
     return render(request,'mainpage/control.html',context)

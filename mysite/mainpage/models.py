@@ -8,6 +8,9 @@ class user_service(models.Model):
     title = models.CharField(max_length = 75)
     services = models.CharField(max_length = 75 , choices = services_choice)
     subject = models.TextField()
+    email = models.CharField(max_length=75,blank=False, null= True)
+    whatsapp_number = models.IntegerField(blank=False, null= True)
+    country = models.CharField(max_length = 75 ,blank=False, null= True)
     delivery_date =models.DateField(blank = True , null = True)
     file = models.FileField(blank = True)
     author = models.ForeignKey(User,default = None,on_delete=models.CASCADE)
@@ -18,8 +21,7 @@ class user_service(models.Model):
     in_progress = models.BooleanField(default=False)
     finished = models.BooleanField(default=False)
 
-    def __str__(self):
-        return  self.author
+
 
 
 

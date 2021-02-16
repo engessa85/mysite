@@ -24,9 +24,9 @@ TEMPLATES_DIR = os.path.join(BASE_DIR,'templates')
 SECRET_KEY = 'p0j9a5@v(y$3%rofzj1vz@q6^6e35moh#x#&3s4=&&19=^w^8i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['engessa85.pythonanywhere.com']
 
 
 # Application definition
@@ -122,6 +122,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/home/engessa85/mysite/mysite/mainpage/static'
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 #LOGIN_REDIRECT_URL = '/signup/'

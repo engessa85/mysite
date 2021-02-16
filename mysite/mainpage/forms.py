@@ -5,22 +5,22 @@ from django.contrib.auth.models import User
 from . models import user_service
 
 class RegisterForm(UserCreationForm):
-    email = forms.EmailField()
-    whatsapp_number = forms.IntegerField()
+
+
 
     class meta:
         model = User
-        fields = ['username','email' ,'password1','password2','whatsapp_number']
+        fields = ['username','password1','password2']
 
 
 class AddingRequest(forms.ModelForm):
     class Meta:
         model = user_service
-        fields = ['title','services','subject','delivery_date','file']
+        fields = ['title','services','subject','email', 'whatsapp_number','country','delivery_date','file']
 
         widgets = {
             'title': forms.TextInput(attrs={'placeholder': 'Add title to your request.'}),
             'subject': forms.Textarea(attrs={'placeholder': 'Write a brief description about your request.'}),
+            'whatsapp_number': forms.TextInput(attrs={'placeholder': 'Example:-> 00965 - 94964095'}),
             'delivery_date': forms.TextInput(attrs={'placeholder': 'Year-Month-Day'})
-
         }

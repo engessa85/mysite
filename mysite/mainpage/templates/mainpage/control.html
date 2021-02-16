@@ -5,7 +5,18 @@
     <title>control panel</title>
   </head>
   <body>
+
     <h1> Control page</h1>
+
+    <h2>Users</h2>
+
+    {% for user in users %}
+
+    <h3><mark>{{user}}</mark></h3>
+
+    {% endfor %}
+
+    <h2>Details</h2>
 
     {% for one_obj in one_objs %}
 
@@ -13,6 +24,9 @@
       <p> <u>Title</u> : <strong>{{one_obj.title}}</strong></p>
       <p> <u>Services</u> : <strong>{{one_obj.services}}</strong></p>
       <p> <u>Subject</u> : <strong>{{one_obj.subject}}</strong></p>
+      <p> <u>Email</u> : <strong>{{one_obj.email}}</strong></p>
+      <p> <u>Whats</u> : <strong>{{one_obj.whatsapp_number}}</strong></p>
+      <p> <u>Country</u> : <strong>{{one_obj.country}}</strong></p>
       <p> <u>Delivery date</u> : <strong>{{one_obj.delivery_date}}</strong></p>
       <p> <u>File</u> : <strong>{{one_obj.file}}</strong></p>
 
